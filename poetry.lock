@@ -1036,6 +1036,17 @@ python-versions = "*"
 tests = ["pytest"]
 
 [[package]]
+name = "pyarrow"
+version = "13.0.0"
+description = "Python library for Apache Arrow"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = ">=1.16.6"
+
+[[package]]
 name = "pycodestyle"
 version = "2.11.1"
 description = "Python style guide checker"
@@ -1563,7 +1574,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.13"
-content-hash = "98ce038665f449963798996a09abd622439204e64200f4d0a77d1e67ea384ee7"
+content-hash = "2ad975dc34a42deef8fa7ce3e24404e3e876505c9c94a5a97873d7d8f656212b"
 
 [metadata.files]
 aiohttp = []
@@ -1678,6 +1689,7 @@ pure-eval = [
     {file = "pure_eval-0.2.2-py3-none-any.whl", hash = "sha256:01eaab343580944bc56080ebe0a674b39ec44a945e6d09ba7db3cb8cec289350"},
     {file = "pure_eval-0.2.2.tar.gz", hash = "sha256:2b45320af6dfaa1750f543d714b6d1c520a1688dec6fd24d339063ce0aaa9ac3"},
 ]
+pyarrow = []
 pycodestyle = []
 pydantic = []
 pydantic-core = []

@@ -13,6 +13,7 @@ modal = "^0.54.3815"
 slack-sdk = "^3.23.0"
 fastapi = "^0.103.2"
 pandas = "^2.1.1"
+pyarrow = "^13.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "^23.9.1"
