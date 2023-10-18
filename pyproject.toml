@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "slack-sl"
+version = "0.1.0"
+description = "A slackbot that returns metrics information based on a user's question"
+authors = ["Doug Guthrie <douglas.p.guthrie@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+langchain = "^0.0.314"
+openai = "^0.28.1"
+modal = "^0.54.3815"
+slack-sdk = "^3.23.0"
+fastapi = "^0.103.2"
+pandas = "^2.1.1"
+
+[tool.poetry.dev-dependencies]
+black = "^23.9.1"
+pre-commit = "^3.5.0"
+isort = "^5.12.0"
+mypy = "^1.6.0"
+flake8 = "^6.1.0"
+pytest = "^7.4.2"
+pytest-dependency = "^0.5.1"
+coverage = "^7.3.2"
+pytest-cov = "^4.1.0"
+mkdocs-material = "^9.4.6"
+ipython = "^8.16.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
