@@ -3,10 +3,10 @@ import os
 from typing import Dict
 
 # third party
+import asyncio
 import modal
 from fastapi import Request
 from fastapi.responses import JSONResponse
-from slack_sdk import WebhookResponse
 
 # first party
 from slack_sl.client import submit_request
@@ -62,9 +62,6 @@ image = (
 )
 @modal.web_endpoint(method="POST")
 async def question(request: Request):
-    # stdlib
-    import asyncio
-
     form_data = await request.form()
     dct = {k: v for k, v in form_data.items()}
     asyncio.create_task(process_question(dct))
@@ -136,9 +133,7 @@ async def process_question(dct: Dict):
     payload = {"query": query.gql, "variables": query.variables}
     results = await get_query_results(payload, dct["response_url"])
     response = await send_slack_message(results, dct["response_url"])
-    return JSONResponse(
-        status_code=response.status_code, content={"text": "Task finished."}
-    )
+    print(response)
 
 
 async def send_slack_message(results: Dict, response_url: str):
@@ -158,6 +153,7 @@ async def send_slack_message(results: Dict, response_url: str):
         tablefmt="presto",
         intfmt=",",
     )
+
     table_response = client.send(text=f"```\n{table_md}\n```")
     sql_response = client.send(text=f"```\n{sql}\n```")
     print(table_response)
