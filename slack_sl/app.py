@@ -53,7 +53,7 @@ image = (
 
 
 @stub.function(
-    container_idle_timeout=300,
+    container_idle_timeout=1200,
     image=image,
     secrets=[
         modal.Secret.from_name("dbt-cloud-service-token"),
