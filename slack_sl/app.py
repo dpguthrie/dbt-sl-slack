@@ -106,7 +106,7 @@ async def process_question(dct: Dict):
     try:
         llm = OpenAI(
             openai_api_key=os.environ["OPENAI_API_KEY"],
-            model_name="text-davinci-003",
+            model_name="gpt-3.5-turbo-instruct",
             temperature=0,
         )
 
