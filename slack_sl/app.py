@@ -66,7 +66,7 @@ async def question(request: Request):
     dct = {k: v for k, v in form_data.items()}
     asyncio.create_task(process_question(dct))
     return JSONResponse(
-        status_code=200, content={"text": "Working on your request now..."}
+        status_code=200, content={"text": "🏃 Working on your request now..."}
     )
 
 
@@ -132,8 +132,11 @@ async def process_question(dct: Dict):
 
     payload = {"query": query.gql, "variables": query.variables}
     results = await get_query_results(payload, dct["response_url"])
-    response = await send_slack_message(results, dct["response_url"])
-    print(response)
+    if isinstance(results, dict):
+        response = await send_slack_message(results, dct["response_url"])
+        print(response)
+    else:
+        return results
 
 
 async def send_slack_message(results: Dict, response_url: str):
